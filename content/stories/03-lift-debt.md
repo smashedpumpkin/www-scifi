@@ -9,7 +9,7 @@ He calls his sister on Sundays, the one day the company subsidizes personal band
 
 He says yes because it is, a little, in the moments before a shift — the curve of the earth, the particular blue of the atmosphere's edge, thinner-looking every year, or maybe he only notices because he's outside it now.
 
-The junk is older than he expected. Panels from stations decommissioned before he was born. Dead relay satellites with corporate logos no one remembers. He moves through it slowly, tethered, tagging pieces for the retrieval arm. The work is not hard. It is the patience that is hard — the suit, the silence, the calculation that runs constantly in the back of his mind.
+The junk is older than he expected. Scorched panels from early start-up attempts at Orbital Intelligence that couldn't disperse heat fast enough. Dead relay satellites with corporate logos no one remembers. He moves through it slowly, tethered, tagging pieces for the retrieval arm. The work is not hard. It is the patience that is hard — the suit, the silence, the calculation that runs constantly in the back of his mind.
 
 Fourteen months down. Twenty-two to go.
 

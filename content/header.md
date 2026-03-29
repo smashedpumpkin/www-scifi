@@ -1,3 +1,3 @@
-# Signals from the Void
+# Token Effort
 
-*Short fiction from the edge of the possible.*
+*Frivolous short fiction from a world trading on tokens and bandwidth.*
