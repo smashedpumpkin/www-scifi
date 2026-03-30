@@ -1,0 +1,4 @@
+- PRs for more content accepted based on my own unarticulated & mercurial sense of taste. Please do have some fun, but don't expect me to land anything too spicy.  
+- Feel free to include a single link back to some web presence that is associated with you personally (your github, socials, whatever). Attribution is fine, not marketing.
+- Deployments happen when I get around to it.
+- PRs fussing over style, minor code defects, etc not required. This is all vibe coded nonsense deploying to a static site and it doesn't matter.
