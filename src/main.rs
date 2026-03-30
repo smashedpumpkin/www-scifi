@@ -297,121 +297,6 @@ document.addEventListener('click', e => {
 "#
 }
 
-// ── Preview image ─────────────────────────────────────────────────────────────
-
-fn preview_svg() -> &'static str {
-    r##"<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <defs>
-    <filter id="a" x="-30%" y="-30%" width="160%" height="160%">
-      <feTurbulence type="turbulence" baseFrequency="0.018" numOctaves="4" seed="7" result="n"/>
-      <feDisplacementMap in="SourceGraphic" in2="n" scale="28" xChannelSelector="R" yChannelSelector="G"/>
-    </filter>
-    <filter id="b" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="5"/>
-    </filter>
-    <filter id="c" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="2.5" result="k"/>
-      <feMerge><feMergeNode in="k"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <radialGradient id="pg" cx="38%" cy="52%" r="48%">
-      <stop offset="0%" stop-color="#2a1860" stop-opacity=".75"/>
-      <stop offset="100%" stop-color="#0a0a0f" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="gg" cx="78%" cy="72%" r="38%">
-      <stop offset="0%" stop-color="#082818" stop-opacity=".8"/>
-      <stop offset="100%" stop-color="#0a0a0f" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-
-  <rect width="1200" height="630" fill="#0a0a0f"/>
-  <rect width="1200" height="630" fill="url(#pg)"/>
-  <rect width="1200" height="630" fill="url(#gg)"/>
-
-  <!-- Grid -->
-  <g stroke="#18182e" stroke-width="1" opacity=".8">
-    <line x1="0"   y1="158" x2="780" y2="158"/>
-    <line x1="0"   y1="315" x2="920" y2="315"/>
-    <line x1="0"   y1="472" x2="680" y2="472"/>
-    <line x1="150" y1="0"   x2="150" y2="630"/>
-    <line x1="300" y1="0"   x2="300" y2="580"/>
-    <line x1="450" y1="0"   x2="450" y2="510"/>
-    <line x1="600" y1="0"   x2="600" y2="400"/>
-    <line x1="750" y1="0"   x2="750" y2="315"/>
-    <line x1="900" y1="0"   x2="900" y2="200"/>
-  </g>
-
-  <!-- Circuit traces -->
-  <g stroke="#3d3478" stroke-width="1.5" fill="none" opacity=".55">
-    <polyline points="0,315 300,315 300,158 600,158"/>
-    <polyline points="150,472 150,315 450,315 450,158"/>
-    <polyline points="300,472 450,472 450,315"/>
-    <polyline points="600,158 750,158 750,315 900,315"/>
-    <polyline points="600,315 600,472"/>
-  </g>
-  <g fill="#7c6af7" filter="url(#c)">
-    <circle cx="300" cy="315" r="5"/> <circle cx="300" cy="158" r="4"/>
-    <circle cx="450" cy="158" r="5"/> <circle cx="450" cy="315" r="5"/>
-    <circle cx="450" cy="472" r="4"/> <circle cx="600" cy="158" r="5"/>
-    <circle cx="600" cy="315" r="4"/> <circle cx="600" cy="472" r="5"/>
-    <circle cx="750" cy="158" r="4"/> <circle cx="750" cy="315" r="5"/>
-    <circle cx="900" cy="315" r="4"/> <circle cx="150" cy="315" r="4"/>
-    <circle cx="150" cy="472" r="4"/>
-  </g>
-
-  <!-- Central warped form -->
-  <g filter="url(#a)">
-    <path d="M520,145 C600,125 700,175 725,285 C750,395 685,465 570,470 C448,476 355,405 340,305 C322,192 415,135 520,145Z"
-          fill="none" stroke="#6050a8" stroke-width="2.5" opacity=".7"/>
-    <path d="M520,175 C588,158 672,200 692,295 C712,382 658,440 558,444 C448,450 368,390 355,300 C340,202 428,165 520,175Z"
-          fill="none" stroke="#4e3e90" stroke-width="1.5" opacity=".55"/>
-    <path d="M520,205 C576,191 645,226 660,304 C675,374 628,422 545,425 C452,430 383,378 372,298 C359,214 442,194 520,205Z"
-          fill="#110a30" stroke="#3d3170" stroke-width="1" opacity=".5"/>
-    <ellipse cx="518" cy="308" rx="105" ry="100" fill="#3d2d80" opacity=".18" filter="url(#b)"/>
-  </g>
-
-  <!-- Mangrove tendrils -->
-  <g stroke="#1e6840" stroke-width="2" fill="none" stroke-linecap="round" opacity=".8">
-    <path d="M970,630 C965,592 980,558 960,520 C942,485 962,450 940,410 C920,374 945,338 922,295"/>
-    <path d="M940,410 C912,394 882,404 852,382 C826,364 800,372 768,350 C742,332 712,336 680,315"/>
-    <path d="M852,382 C844,356 858,328 840,302 C826,280 840,255 828,228"/>
-    <path d="M840,302 C866,290 892,298 920,278 C940,264 960,265 984,248"/>
-    <path d="M922,295 C962,278 1000,288 1040,266 C1070,250 1098,254 1132,236"/>
-    <path d="M1040,266 C1048,240 1038,214 1052,190 C1062,172 1054,150 1068,128"/>
-    <path d="M1052,190 C1080,178 1108,186 1136,166 C1155,152 1168,152 1190,138" stroke-width="1.4"/>
-    <path d="M1095,630 C1090,596 1106,566 1088,532 C1073,502 1090,470 1074,435"/>
-    <path d="M1074,435 C1102,418 1128,428 1155,408 C1173,394 1185,395 1200,378"/>
-    <path d="M680,315  C668,294 678,270 660,246" stroke-width="1.3"/>
-    <path d="M828,228  C842,206 834,182 848,158 C856,142 850,124 864,104" stroke-width="1.3"/>
-    <path d="M1068,128 C1084,108 1078,86 1094,64" stroke-width="1.3"/>
-  </g>
-
-  <!-- Comm-sats -->
-  <g fill="#9d8fff" filter="url(#c)">
-    <circle cx="58"   cy="42"  r="1.8"/> <circle cx="132"  cy="33"  r="1.5"/>
-    <circle cx="208"  cy="46"  r="2"/>   <circle cx="286"  cy="31"  r="1.5"/>
-    <circle cx="368"  cy="44"  r="1.8"/> <circle cx="448"  cy="27"  r="1.5"/>
-    <circle cx="530"  cy="48"  r="2"/>   <circle cx="614"  cy="34"  r="1.5"/>
-    <circle cx="696"  cy="42"  r="1.8"/> <circle cx="780"  cy="28"  r="1.5"/>
-    <circle cx="864"  cy="46"  r="2"/>   <circle cx="950"  cy="33"  r="1.5"/>
-    <circle cx="1038" cy="48"  r="1.8"/> <circle cx="1124" cy="36"  r="1.5"/>
-    <circle cx="92"   cy="86"  r="1.5"/> <circle cx="174"  cy="75"  r="1.8"/>
-    <circle cx="258"  cy="90"  r="1.5"/> <circle cx="344"  cy="78"  r="2"/>
-    <circle cx="430"  cy="93"  r="1.5"/> <circle cx="516"  cy="72"  r="1.8"/>
-    <circle cx="604"  cy="86"  r="1.5"/> <circle cx="690"  cy="75"  r="2"/>
-    <circle cx="778"  cy="90"  r="1.5"/> <circle cx="866"  cy="78"  r="1.8"/>
-    <circle cx="954"  cy="92"  r="1.5"/> <circle cx="1044" cy="80"  r="2"/>
-    <circle cx="1134" cy="88"  r="1.5"/> <circle cx="1188" cy="56"  r="1.8"/>
-    <circle cx="155"  cy="128" r="1.4"/> <circle cx="358"  cy="116" r="1.8"/>
-    <circle cx="564"  cy="122" r="1.4"/> <circle cx="770"  cy="112" r="2"/>
-    <circle cx="978"  cy="126" r="1.5"/>
-  </g>
-
-  <!-- Title -->
-  <text x="88" y="552" font-family="'Courier New',Courier,monospace" font-size="82" font-weight="bold" letter-spacing="5" fill="#e8e8f8">TOKEN EFFORT</text>
-  <text x="90" y="598" font-family="'Courier New',Courier,monospace" font-size="17" letter-spacing="5" fill="#6868a0">SHORT FICTION. TOKENS AND BANDWIDTH.</text>
-</svg>"##
-}
-
 // ── HTML assembly ─────────────────────────────────────────────────────────────
 
 fn render_story(story: &Story) -> String {
@@ -446,11 +331,14 @@ fn build_page(header_md: &str, footer_md: &str, stories: &[Story]) -> String {
   <meta property="og:description" content="Short fiction from a world trading on tokens and bandwidth.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://token-effort.ai/">
-  <meta property="og:image" content="https://token-effort.ai/preview.svg">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://token-effort.ai/icon-x-small.png">
+  <meta property="og:image:width" content="147">
+  <meta property="og:image:height" content="148">
+  <meta property="og:image:alt" content="Abstract fractal network">
+  <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Token Effort">
   <meta name="twitter:description" content="Short fiction from a world trading on tokens and bandwidth.">
-  <meta name="twitter:image" content="https://token-effort.ai/preview.svg">
+  <meta name="twitter:image" content="https://token-effort.ai/icon-x-small.png">
   <style>{css}</style>
 </head>
 <body>
@@ -505,9 +393,8 @@ fn main() {
     fs::write(output_path, &html)
         .unwrap_or_else(|e| panic!("failed to write {output_path}: {e}"));
 
-    fs::write("output/preview.svg", preview_svg())
-        .unwrap_or_else(|e| panic!("failed to write output/preview.svg: {e}"));
+    fs::copy("content/icon-x-small.png", "output/icon-x-small.png")
+        .unwrap_or_else(|e| panic!("failed to copy icon-x-small.png: {e}"));
 
     println!("Done → {output_path}  ({} bytes)", html.len());
-    println!("       output/preview.svg");
 }
